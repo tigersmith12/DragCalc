@@ -116,7 +116,7 @@ export default function CalculatorForm({ inputs, onInputChange, onClear }: Calcu
                 <Weight className="w-5 h-5 text-slate-400 dark:text-gray-400" />
               </div>
             </div>
-            <p className="text-sm text-slate-500 dark:text-gray-400 mt-1">The maximum drag value in your system</p>
+            <p className="text-sm text-slate-500 dark:text-gray-400 mt-1">The maximum drag value of your reel</p>
             {errors.maxDrag && (
               <div className="text-red-500 text-sm mt-1" data-testid="error-max-drag">
                 {errors.maxDrag}
