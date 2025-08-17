@@ -163,8 +163,9 @@ export default function CalculatorForm({ inputs, onInputChange, onClear }: Calcu
                 type="number"
                 id="desiredSetting"
                 data-testid="input-desired-setting"
-                placeholder="Enter desired setting number"
+                placeholder={inputs.numSettings > 0 ? `Enter setting (1-${inputs.numSettings})` : "Enter desired setting number"}
                 min="1"
+                max={inputs.numSettings > 0 ? inputs.numSettings : undefined}
                 step="1"
                 value={inputs.desiredSetting || ""}
                 onChange={(e) => handleInputChange("desiredSetting", e.target.value)}
@@ -174,7 +175,9 @@ export default function CalculatorForm({ inputs, onInputChange, onClear }: Calcu
                 <Target className="w-5 h-5 text-slate-400 dark:text-gray-400" />
               </div>
             </div>
-            <p className="text-sm text-slate-500 dark:text-gray-400 mt-1">The specific setting you want to calculate for</p>
+            <p className="text-sm text-slate-500 dark:text-gray-400 mt-1">
+              The specific setting you want to calculate for{inputs.numSettings > 0 ? ` (1-${inputs.numSettings})` : ""}
+            </p>
             {errors.desiredSetting && (
               <div className="text-red-500 text-sm mt-1" data-testid="error-desired-setting">
                 {errors.desiredSetting}
