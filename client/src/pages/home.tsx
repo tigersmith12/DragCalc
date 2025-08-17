@@ -4,6 +4,7 @@ import CalculatorForm from "@/components/calculator-form";
 import ResultDisplay from "@/components/result-display";
 import FormulaCard from "@/components/formula-card";
 import ExampleCard from "@/components/example-card";
+import ThemeToggle from "@/components/theme-toggle";
 
 export interface CalculationInputs {
   maxDrag: number;
@@ -80,15 +81,20 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen py-8 px-4 sm:px-6 lg:px-8 bg-slate-50">
+    <div className="min-h-screen py-8 px-4 sm:px-6 lg:px-8 bg-slate-50 dark:bg-gray-900">
       <div className="max-w-4xl mx-auto">
+        {/* Theme Toggle */}
+        <div className="flex justify-end mb-6">
+          <ThemeToggle />
+        </div>
+        
         {/* Header Section */}
         <div className="text-center mb-8">
           <div className="inline-flex items-center justify-center w-16 h-16 bg-primary rounded-xl mb-4">
             <Calculator className="text-white w-8 h-8" />
           </div>
-          <h1 className="text-3xl font-bold text-slate-800 mb-2">Drag Calculator</h1>
-          <p className="text-slate-600 max-w-2xl mx-auto">
+          <h1 className="text-3xl font-bold text-slate-800 dark:text-white mb-2">Drag Calculator</h1>
+          <p className="text-slate-600 dark:text-gray-400 max-w-2xl mx-auto">
             Calculate drag values based on maximum drag, number of settings, and desired setting using our precision algorithm.
           </p>
         </div>
