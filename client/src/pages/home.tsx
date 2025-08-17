@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Calculator } from "lucide-react";
 import CalculatorForm from "@/components/calculator-form";
-import ResultDisplay from "@/components/result-display";
 import FormulaCard from "@/components/formula-card";
 import ExampleCard from "@/components/example-card";
 import ThemeToggle from "@/components/theme-toggle";
@@ -101,7 +100,7 @@ export default function Home() {
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8">
-          {/* Calculator Input Section */}
+          {/* Calculator Input Section with Result */}
           <div className="lg:col-span-2">
             <CalculatorForm
               inputs={inputs}
@@ -110,12 +109,8 @@ export default function Home() {
             />
           </div>
 
-          {/* Results and Formula Section */}
+          {/* Formula and Example Section */}
           <div className="space-y-6">
-            <ResultDisplay
-              inputs={inputs}
-              result={result}
-            />
             <FormulaCard />
             <ExampleCard onLoadExample={handleLoadExample} />
           </div>

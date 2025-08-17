@@ -86,6 +86,11 @@ export default function CalculatorForm({ inputs, onInputChange, onClear }: Calcu
     onClear();
   };
 
+  // Calculate real-time results
+  const isValidCalculation = inputs.maxDrag > 0 && inputs.numSettings > 0 && inputs.desiredSetting > 0 && inputs.desiredSetting <= inputs.numSettings;
+  const dragPerSetting = isValidCalculation ? inputs.maxDrag / inputs.numSettings : 0;
+  const result = isValidCalculation ? dragPerSetting * inputs.desiredSetting : 0;
+
   return (
     <Card className="shadow-xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
       <CardContent className="p-8">
@@ -185,27 +190,44 @@ export default function CalculatorForm({ inputs, onInputChange, onClear }: Calcu
             )}
           </div>
 
-          {/* Action Buttons */}
-          <div className="flex gap-4 pt-4">
-            <Button
-              type="button"
-              data-testid="button-calculate"
-              className="flex-1 bg-primary text-white px-6 py-3 font-medium hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-              onClick={() => {/* Real-time calculation already handled */}}
-            >
-              <Calculator className="w-4 h-4 mr-2" />
-              Calculate
-            </Button>
-            <Button
-              type="button"
-              variant="outline"
-              data-testid="button-clear"
-              className="px-6 py-3 border border-slate-300 dark:border-gray-600 text-slate-700 dark:text-gray-200 font-medium hover:bg-slate-50 dark:hover:bg-gray-700 focus:ring-2 focus:ring-slate-500 focus:ring-offset-2"
-              onClick={handleClear}
-            >
-              <Trash2 className="w-4 h-4 mr-2" />
-              Clear
-            </Button>
+          {/* Real-time Result Display */}
+          <div className="pt-4">
+            <div className="bg-gradient-to-r from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 rounded-xl p-6 mb-4 text-center">
+              <div className="text-sm text-slate-600 dark:text-gray-400 mb-1">Drag at Desired Setting</div>
+              <div className="text-3xl font-bold text-slate-800 dark:text-white" data-testid="text-result">
+                {isValidCalculation ? result.toFixed(4) : "--"}
+              </div>
+              <div className="text-sm text-slate-500 dark:text-gray-400 mt-1">units</div>
+            </div>
+
+            {/* Calculation Steps */}
+            {isValidCalculation && (
+              <div className="text-left space-y-2 text-sm text-slate-600 dark:text-gray-400 mb-4" data-testid="calculation-steps">
+                <div className="bg-slate-50 dark:bg-gray-700 rounded-lg p-3">
+                  <div className="font-medium mb-1 text-slate-800 dark:text-white">Calculation Steps:</div>
+                  <div>
+                    1. Drag per setting = {inputs.maxDrag} ÷ {inputs.numSettings} = {dragPerSetting.toFixed(4)}
+                  </div>
+                  <div>
+                    2. Final result = {dragPerSetting.toFixed(4)} × {inputs.desiredSetting} = {result.toFixed(4)}
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Clear Button */}
+            <div className="flex justify-center">
+              <Button
+                type="button"
+                variant="outline"
+                data-testid="button-clear"
+                className="px-6 py-3 border border-slate-300 dark:border-gray-600 text-slate-700 dark:text-gray-200 font-medium hover:bg-slate-50 dark:hover:bg-gray-700 focus:ring-2 focus:ring-slate-500 focus:ring-offset-2"
+                onClick={handleClear}
+              >
+                <Trash2 className="w-4 h-4 mr-2" />
+                Clear
+              </Button>
+            </div>
           </div>
         </div>
       </CardContent>

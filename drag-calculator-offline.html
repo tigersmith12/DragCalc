@@ -498,15 +498,23 @@
                             <div id="desiredSetting-error" class="error" style="display: none;"></div>
                         </div>
 
-                        <!-- Buttons -->
-                        <div class="button-group">
-                            <button type="button" class="button button-primary" onclick="calculate()">
-                                <svg width="16" height="16" viewBox="0 0 24 24">
-                                    <path d="M9 7H7v10h2V7zM12 7h-2v10h2V7zM15 7h-2v10h2V7z"/>
-                                    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z"/>
-                                </svg>
-                                Calculate
-                            </button>
+                        <!-- Real-time Result Display -->
+                        <div class="form-group">
+                            <div class="result-display">
+                                <div class="result-label">Drag at Desired Setting</div>
+                                <div id="inline-result-value" class="result-value">--</div>
+                                <div class="result-unit">units</div>
+                            </div>
+
+                            <div id="inline-calculation-steps" class="calculation-steps" style="display: none;">
+                                <div style="font-weight: 600; margin-bottom: 0.5rem;">Calculation Steps:</div>
+                                <div id="inline-step1"></div>
+                                <div id="inline-step2"></div>
+                            </div>
+                        </div>
+
+                        <!-- Clear Button -->
+                        <div style="text-align: center; margin-top: 1rem;">
                             <button type="button" class="button button-outline" onclick="clearForm()">
                                 <svg width="16" height="16" viewBox="0 0 24 24">
                                     <polyline points="3,6 5,6 21,6"/>
@@ -712,8 +720,11 @@
             if (desiredSettingError) hasErrors = true;
 
             if (hasErrors) {
+                // Clear both displays
                 document.getElementById('result-value').textContent = '--';
                 document.getElementById('calculation-steps').style.display = 'none';
+                document.getElementById('inline-result-value').textContent = '--';
+                document.getElementById('inline-calculation-steps').style.display = 'none';
                 return;
             }
 
@@ -721,17 +732,25 @@
             const dragPerSetting = maxDrag / numSettings;
             const finalResult = dragPerSetting * desiredSetting;
 
-            // Display results
+            // Display results in both locations
             document.getElementById('result-value').textContent = finalResult.toFixed(4);
             document.getElementById('step1').textContent = `1. Drag per setting = ${maxDrag} ÷ ${numSettings} = ${dragPerSetting.toFixed(4)}`;
             document.getElementById('step2').textContent = `2. Final result = ${dragPerSetting.toFixed(4)} × ${desiredSetting} = ${finalResult.toFixed(4)}`;
             document.getElementById('calculation-steps').style.display = 'block';
+
+            // Update inline display
+            document.getElementById('inline-result-value').textContent = finalResult.toFixed(4);
+            document.getElementById('inline-step1').textContent = `1. Drag per setting = ${maxDrag} ÷ ${numSettings} = ${dragPerSetting.toFixed(4)}`;
+            document.getElementById('inline-step2').textContent = `2. Final result = ${dragPerSetting.toFixed(4)} × ${desiredSetting} = ${finalResult.toFixed(4)}`;
+            document.getElementById('inline-calculation-steps').style.display = 'block';
         }
 
         function clearForm() {
             document.getElementById('calculator-form').reset();
             document.getElementById('result-value').textContent = '--';
             document.getElementById('calculation-steps').style.display = 'none';
+            document.getElementById('inline-result-value').textContent = '--';
+            document.getElementById('inline-calculation-steps').style.display = 'none';
             
             // Clear errors
             showError('maxDrag', '');
