@@ -5,6 +5,7 @@ import ResultDisplay from "@/components/result-display";
 import FormulaCard from "@/components/formula-card";
 import ExampleCard from "@/components/example-card";
 import ThemeToggle from "@/components/theme-toggle";
+import Footer from "@/components/footer";
 
 export interface CalculationInputs {
   maxDrag: number;
@@ -119,6 +120,8 @@ export default function Home() {
             <ExampleCard onLoadExample={handleLoadExample} />
           </div>
         </div>
+        
+        <Footer />
       </div>
     </div>
   );
