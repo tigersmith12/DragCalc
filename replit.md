@@ -1,6 +1,6 @@
 # Overview
 
-This is a modern full-stack web application built with React and Express.js that provides a drag calculation tool. The application allows users to input parameters (max drag, number of settings, desired setting) and calculates the drag value at a specific setting using a linear distribution formula. The frontend features a clean, responsive UI built with shadcn/ui components and Tailwind CSS, while the backend provides a REST API foundation with PostgreSQL database integration via Drizzle ORM.
+This is a modern full-stack web application built with React and Express.js that provides a drag calculation tool for fishing reels. The application allows users to input parameters (max drag of their reel, number of settings, desired setting) and calculates the drag value at a specific setting using a linear distribution formula. The frontend features a clean, responsive UI with dark mode toggle built with shadcn/ui components and Tailwind CSS, while the backend provides a REST API foundation with PostgreSQL database integration via Drizzle ORM.
 
 # User Preferences
 
@@ -13,8 +13,9 @@ Preferred communication style: Simple, everyday language.
 - **Routing**: Wouter for lightweight client-side routing
 - **UI Components**: shadcn/ui component library with Radix UI primitives for accessibility
 - **Styling**: Tailwind CSS with custom design tokens and CSS variables for theming
+- **Dark Mode**: Custom ThemeProvider with localStorage persistence and toggle component
 - **State Management**: React hooks for local state, TanStack Query for server state management
-- **Form Handling**: React Hook Form with Zod validation schemas
+- **Form Handling**: React Hook Form with Zod validation schemas for real-time validation
 - **Build Tool**: Vite with custom configuration for development and production builds
 
 ## Backend Architecture
