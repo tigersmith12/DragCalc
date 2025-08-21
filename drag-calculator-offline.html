@@ -424,7 +424,7 @@
         </div>
 
         <!-- Header -->
-        <div class="header">
+        <!-- <div class="header">
             <div class="icon-container">
                 <svg width="32" height="32" viewBox="0 0 24 24" fill="white">
                     <path d="M9 7H7v10h2V7zM12 7h-2v10h2V7zM15 7h-2v10h2V7z"/>
@@ -433,7 +433,7 @@
             </div>
             <h1>Drag Calculator</h1>
             <p>Calculate drag values based on maximum drag, number of settings, and desired setting using our precision algorithm.</p>
-        </div>
+        </div> -->
 
         <!-- Main Content -->
         <div class="grid">
@@ -442,11 +442,15 @@
                 <div class="card-content">
                     <h2 class="card-title" style="justify-content: space-between;">
                         <div style="display: flex; align-items: center;">
-                            <svg viewBox="0 0 24 24">
+                            <!-- <svg viewBox="0 0 24 24">
                                 <circle cx="12" cy="12" r="3"/>
                                 <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
-                            </svg>
-                            Input Parameters
+                            </svg> -->
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="white">
+                    <path d="M9 7H7v10h2V7zM12 7h-2v10h2V7zM15 7h-2v10h2V7z"/>
+                    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z"/>
+                </svg>
+                            Drag Calculator
                         </div>
                         <span id="title-result" class="result-value" style="font-size: 1.25rem;"></span>
                     </h2>
@@ -459,11 +463,11 @@
                             </label>
                             <div class="input-container">
                                 <input type="number" id="maxDrag" class="input" placeholder="Enter maximum drag value" min="0.01" step="0.01">
-                                <svg class="input-icon" viewBox="0 0 24 24">
+                                <!-- <svg class="input-icon" viewBox="0 0 24 24">
                                     <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
                                     <polyline points="3.27,6.96 12,12.01 20.73,6.96"/>
                                     <line x1="12" y1="22.08" x2="12" y2="12"/>
-                                </svg>
+                                </svg> -->
                             </div>
                             <div class="help-text">The maximum drag value of your reel</div>
                             <div id="maxDrag-error" class="error" style="display: none;"></div>
@@ -476,10 +480,10 @@
                             </label>
                             <div class="input-container">
                                 <input type="number" id="numSettings" class="input" placeholder="Enter total number of settings" min="1" step="1">
-                                <svg class="input-icon" viewBox="0 0 24 24">
+                                <!-- <svg class="input-icon" viewBox="0 0 24 24">
                                     <circle cx="12" cy="12" r="3"/>
                                     <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
-                                </svg>
+                                </svg> -->
                             </div>
                             <div class="help-text">Total number of available settings</div>
                             <div id="numSettings-error" class="error" style="display: none;"></div>
@@ -492,21 +496,21 @@
                             </label>
                             <div class="input-container">
                                 <input type="number" id="desiredSetting" class="input" placeholder="Enter desired setting number" min="1" step="1">
-                                <svg class="input-icon" viewBox="0 0 24 24">
+                                <!-- <svg class="input-icon" viewBox="0 0 24 24">
                                     <circle cx="12" cy="12" r="10"/>
                                     <polyline points="12,6 12,12 16,14"/>
-                                </svg>
+                                </svg> -->
                             </div>
                             <div id="desiredSetting-help" class="help-text">The specific setting you want to calculate for</div>
                             <div id="desiredSetting-error" class="error" style="display: none;"></div>
                         </div>
 
                         <!-- OR divider -->
-                        <div style="display: flex; align-items: center; justify-content: center; margin: 1.5rem 0;">
+                        <!-- <div style="display: flex; align-items: center; justify-content: center; margin: 1.5rem 0;">
                             <div style="flex: 1; border-top: 1px solid var(--border-light);"></div>
                             <span style="padding: 0 1rem; font-size: 0.875rem; color: var(--text-muted-light);">OR</span>
                             <div style="flex: 1; border-top: 1px solid var(--border-light);"></div>
-                        </div>
+                        </div> -->
 
                         <!-- Target Drag Input (Reverse Calculation) -->
                         <div class="form-group">
@@ -515,9 +519,9 @@
                             </label>
                             <div class="input-container">
                                 <input type="number" id="targetDrag" class="input" placeholder="Enter desired drag value" min="0.01" step="0.01">
-                                <svg class="input-icon" viewBox="0 0 24 24">
+                                <!-- <svg class="input-icon" viewBox="0 0 24 24">
                                     <path d="M2.5 2v6h6m8.5 0a9 9 0 1 1-5.38-8.23"/>
-                                </svg>
+                                </svg> -->
                             </div>
                             <div class="help-text">Enter your desired drag value and we'll calculate the required maximum drag</div>
                             <div id="targetDrag-error" class="error" style="display: none;"></div>
@@ -526,10 +530,10 @@
                         <!-- Clear Button -->
                         <div style="text-align: center; margin-top: 1rem;">
                             <button type="button" class="button button-outline" onclick="clearForm()">
-                                <svg width="16" height="16" viewBox="0 0 24 24">
+                                <!-- <svg width="16" height="16" viewBox="0 0 24 24">
                                     <polyline points="3,6 5,6 21,6"/>
                                     <path d="m19,6v14a2,2 0 0,1 -2,2H7a2,2 0 0,1 -2,-2V6m3,0V4a2,2 0 0,1 2,-2h4a2,2 0 0,1 2,2v2"/>
-                                </svg>
+                                </svg> -->
                                 Clear
                             </button>
                         </div>
