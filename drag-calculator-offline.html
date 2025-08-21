@@ -440,12 +440,15 @@
             <!-- Calculator Form -->
             <div class="card">
                 <div class="card-content">
-                    <h2 class="card-title">
-                        <svg viewBox="0 0 24 24">
-                            <circle cx="12" cy="12" r="3"/>
-                            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
-                        </svg>
-                        Input Parameters
+                    <h2 class="card-title" style="justify-content: space-between;">
+                        <div style="display: flex; align-items: center;">
+                            <svg viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="3"/>
+                                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                            </svg>
+                            Input Parameters
+                        </div>
+                        <span id="title-result" class="result-value" style="font-size: 1.25rem;"></span>
                     </h2>
 
                     <form id="calculator-form">
@@ -500,9 +503,9 @@
 
                         <!-- OR divider -->
                         <div style="display: flex; align-items: center; justify-content: center; margin: 1.5rem 0;">
-                            <div style="flex: 1; border-top: 1px solid var(--border-light); border-color: var(--border-light);"></div>
-                            <span style="padding: 0 1rem; font-size: 0.875rem; color: var(--text-muted-light); background: var(--card-light);">OR</span>
-                            <div style="flex: 1; border-top: 1px solid var(--border-light); border-color: var(--border-light);"></div>
+                            <div style="flex: 1; border-top: 1px solid var(--border-light);"></div>
+                            <span style="padding: 0 1rem; font-size: 0.875rem; color: var(--text-muted-light);">OR</span>
+                            <div style="flex: 1; border-top: 1px solid var(--border-light);"></div>
                         </div>
 
                         <!-- Target Drag Input (Reverse Calculation) -->
@@ -511,28 +514,13 @@
                                 Target Drag at Desired Setting
                             </label>
                             <div class="input-container">
-                                <input type="number" id="targetDrag" class="input" placeholder="Enter desired drag value to calculate max drag" min="0.01" step="0.01">
+                                <input type="number" id="targetDrag" class="input" placeholder="Enter desired drag value" min="0.01" step="0.01">
                                 <svg class="input-icon" viewBox="0 0 24 24">
                                     <path d="M2.5 2v6h6m8.5 0a9 9 0 1 1-5.38-8.23"/>
                                 </svg>
                             </div>
                             <div class="help-text">Enter your desired drag value and we'll calculate the required maximum drag</div>
                             <div id="targetDrag-error" class="error" style="display: none;"></div>
-                        </div>
-
-                        <!-- Real-time Result Display -->
-                        <div class="form-group">
-                            <div class="result-display">
-                                <div class="result-label">Drag at Desired Setting</div>
-                                <div id="inline-result-value" class="result-value">--</div>
-                                <div class="result-unit">units</div>
-                            </div>
-
-                            <div id="inline-calculation-steps" class="calculation-steps" style="display: none;">
-                                <div style="font-weight: 600; margin-bottom: 0.5rem;">Calculation Steps:</div>
-                                <div id="inline-step1"></div>
-                                <div id="inline-step2"></div>
-                            </div>
                         </div>
 
                         <!-- Clear Button -->
@@ -645,7 +633,7 @@
 
         <!-- Footer -->
         <div class="footer">
-            <a href="../index.html">Home</a> | <a href="https://github.com/tigersmith12/DragCalc" target="_blank" rel="noopener noreferrer">GitHub</a> | Built with ❤️ by Claude AI Assistant
+            <a href="../index.html">Home</a> | <a href="https://github.com/tigersmith12/DragCalc" target="_blank" rel="noopener noreferrer">GitHub</a> | Built with ❤️ by Claude AI Assistant & Gemini
         </div>
     </div>
 
@@ -675,6 +663,8 @@
                 icon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
             }
         }
+
+        let isCalculatingReverse = false;
 
         // Form validation and calculation
         function validateInput(value, fieldName, min = 0.01) {
@@ -721,6 +711,7 @@
         }
 
         function calculateReverse() {
+            isCalculatingReverse = true;
             const targetDrag = parseFloat(document.getElementById('targetDrag').value) || 0;
             const numSettings = parseFloat(document.getElementById('numSettings').value) || 0;
             const desiredSetting = parseFloat(document.getElementById('desiredSetting').value) || 0;
@@ -730,9 +721,10 @@
                 const calculatedMaxDrag = (targetDrag * numSettings) / desiredSetting;
                 document.getElementById('maxDrag').value = calculatedMaxDrag.toFixed(4);
                 
-                // Trigger normal calculation
+                // Trigger normal calculation to update all displays
                 calculate();
             }
+            isCalculatingReverse = false;
         }
 
         function calculate() {
@@ -762,6 +754,7 @@
                 document.getElementById('calculation-steps').style.display = 'none';
                 document.getElementById('inline-result-value').textContent = '--';
                 document.getElementById('inline-calculation-steps').style.display = 'none';
+                document.getElementById('title-result').textContent = '';
                 return;
             }
 
@@ -769,17 +762,26 @@
             const dragPerSetting = maxDrag / numSettings;
             const finalResult = dragPerSetting * desiredSetting;
 
+            // Update result display labels
+            const resultLabels = document.querySelectorAll('.result-label');
+            resultLabels.forEach(label => label.textContent = 'Drag at Desired Setting');
+
             // Display results in both locations
             document.getElementById('result-value').textContent = finalResult.toFixed(4);
-            document.getElementById('step1').textContent = `1. Drag per setting = ${maxDrag} ÷ ${numSettings} = ${dragPerSetting.toFixed(4)}`;
-            document.getElementById('step2').textContent = `2. Final result = ${dragPerSetting.toFixed(4)} × ${desiredSetting} = ${finalResult.toFixed(4)}`;
+            document.getElementById('step1').textContent = `1. Drag per setting = ${maxDrag} / ${numSettings} = ${dragPerSetting.toFixed(4)}`;
+            document.getElementById('step2').textContent = `2. Final result = ${dragPerSetting.toFixed(4)} * ${desiredSetting} = ${finalResult.toFixed(4)}`;
             document.getElementById('calculation-steps').style.display = 'block';
 
             // Update inline display
             document.getElementById('inline-result-value').textContent = finalResult.toFixed(4);
-            document.getElementById('inline-step1').textContent = `1. Drag per setting = ${maxDrag} ÷ ${numSettings} = ${dragPerSetting.toFixed(4)}`;
-            document.getElementById('inline-step2').textContent = `2. Final result = ${dragPerSetting.toFixed(4)} × ${desiredSetting} = ${finalResult.toFixed(4)}`;
+            document.getElementById('inline-step1').textContent = `1. Drag per setting = ${maxDrag} / ${numSettings} = ${dragPerSetting.toFixed(4)}`;
+            document.getElementById('inline-step2').textContent = `2. Final result = ${dragPerSetting.toFixed(4)} * ${desiredSetting} = ${finalResult.toFixed(4)}`;
             document.getElementById('inline-calculation-steps').style.display = 'block';
+
+            if (!isCalculatingReverse) {
+                document.getElementById('targetDrag').value = finalResult.toFixed(4);
+            }
+            document.getElementById('title-result').textContent = finalResult.toFixed(4);
         }
 
         function clearForm() {
@@ -788,6 +790,7 @@
             document.getElementById('calculation-steps').style.display = 'none';
             document.getElementById('inline-result-value').textContent = '--';
             document.getElementById('inline-calculation-steps').style.display = 'none';
+            document.getElementById('title-result').textContent = '';
             
             // Clear errors
             showError('maxDrag', '');
@@ -815,11 +818,9 @@
             document.getElementById('numSettings').addEventListener('input', function() {
                 updateDesiredSettingConstraints();
                 calculate();
-                calculateReverse(); // Also trigger reverse calculation
             });
             document.getElementById('desiredSetting').addEventListener('input', function() {
                 calculate();
-                calculateReverse(); // Also trigger reverse calculation
             });
             document.getElementById('targetDrag').addEventListener('input', calculateReverse);
         });
