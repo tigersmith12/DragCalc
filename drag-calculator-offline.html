@@ -424,7 +424,7 @@
         </div>
 
         <!-- Header -->
-        <!-- <div class="header">
+        <div class="header">
             <div class="icon-container">
                 <svg width="32" height="32" viewBox="0 0 24 24" fill="white">
                     <path d="M9 7H7v10h2V7zM12 7h-2v10h2V7zM15 7h-2v10h2V7z"/>
@@ -433,7 +433,7 @@
             </div>
             <h1>Drag Calculator</h1>
             <p>Calculate drag values based on maximum drag, number of settings, and desired setting using our precision algorithm.</p>
-        </div> -->
+        </div>
 
         <!-- Main Content -->
         <div class="grid">
@@ -442,11 +442,11 @@
                 <div class="card-content">
                     <h2 class="card-title" style="justify-content: space-between;">
                         <div style="display: flex; align-items: center;">
-                            <!-- <svg viewBox="0 0 24 24">
+                            <svg viewBox="0 0 24 24">
                                 <circle cx="12" cy="12" r="3"/>
                                 <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
-                            </svg> -->
-                            Drag Calculator
+                            </svg>
+                            Input Parameters
                         </div>
                         <span id="title-result" class="result-value" style="font-size: 1.25rem;"></span>
                     </h2>
@@ -459,11 +459,11 @@
                             </label>
                             <div class="input-container">
                                 <input type="number" id="maxDrag" class="input" placeholder="Enter maximum drag value" min="0.01" step="0.01">
-                                <!-- <svg class="input-icon" viewBox="0 0 24 24">
+                                <svg class="input-icon" viewBox="0 0 24 24">
                                     <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
                                     <polyline points="3.27,6.96 12,12.01 20.73,6.96"/>
                                     <line x1="12" y1="22.08" x2="12" y2="12"/>
-                                </svg> -->
+                                </svg>
                             </div>
                             <div class="help-text">The maximum drag value of your reel</div>
                             <div id="maxDrag-error" class="error" style="display: none;"></div>
@@ -476,10 +476,10 @@
                             </label>
                             <div class="input-container">
                                 <input type="number" id="numSettings" class="input" placeholder="Enter total number of settings" min="1" step="1">
-                                <!-- <svg class="input-icon" viewBox="0 0 24 24">
+                                <svg class="input-icon" viewBox="0 0 24 24">
                                     <circle cx="12" cy="12" r="3"/>
                                     <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
-                                </svg> -->
+                                </svg>
                             </div>
                             <div class="help-text">Total number of available settings</div>
                             <div id="numSettings-error" class="error" style="display: none;"></div>
@@ -492,21 +492,21 @@
                             </label>
                             <div class="input-container">
                                 <input type="number" id="desiredSetting" class="input" placeholder="Enter desired setting number" min="1" step="1">
-                                <!-- <svg class="input-icon" viewBox="0 0 24 24">
+                                <svg class="input-icon" viewBox="0 0 24 24">
                                     <circle cx="12" cy="12" r="10"/>
                                     <polyline points="12,6 12,12 16,14"/>
-                                </svg> -->
+                                </svg>
                             </div>
                             <div id="desiredSetting-help" class="help-text">The specific setting you want to calculate for</div>
                             <div id="desiredSetting-error" class="error" style="display: none;"></div>
                         </div>
 
                         <!-- OR divider -->
-                        <!-- <div style="display: flex; align-items: center; justify-content: center; margin: 1.5rem 0;">
+                        <div style="display: flex; align-items: center; justify-content: center; margin: 1.5rem 0;">
                             <div style="flex: 1; border-top: 1px solid var(--border-light);"></div>
                             <span style="padding: 0 1rem; font-size: 0.875rem; color: var(--text-muted-light);">OR</span>
                             <div style="flex: 1; border-top: 1px solid var(--border-light);"></div>
-                        </div> -->
+                        </div>
 
                         <!-- Target Drag Input (Reverse Calculation) -->
                         <div class="form-group">
@@ -515,9 +515,9 @@
                             </label>
                             <div class="input-container">
                                 <input type="number" id="targetDrag" class="input" placeholder="Enter desired drag value" min="0.01" step="0.01">
-                                <!-- <svg class="input-icon" viewBox="0 0 24 24">
+                                <svg class="input-icon" viewBox="0 0 24 24">
                                     <path d="M2.5 2v6h6m8.5 0a9 9 0 1 1-5.38-8.23"/>
-                                </svg> -->
+                                </svg>
                             </div>
                             <div class="help-text">Enter your desired drag value and we'll calculate the required maximum drag</div>
                             <div id="targetDrag-error" class="error" style="display: none;"></div>
@@ -717,12 +717,9 @@
             const desiredSetting = parseFloat(document.getElementById('desiredSetting').value) || 0;
 
             if (targetDrag > 0 && numSettings > 0 && desiredSetting > 0) {
-                // Reverse calculation: maxDrag = targetDrag * numSettings / desiredSetting
                 const calculatedMaxDrag = (targetDrag * numSettings) / desiredSetting;
                 document.getElementById('maxDrag').value = calculatedMaxDrag.toFixed(4);
-                
-                // Trigger normal calculation to update all displays
-                calculate();
+                calculate(); // This will handle all display updates
             }
             isCalculatingReverse = false;
         }
@@ -749,7 +746,7 @@
             if (desiredSettingError) hasErrors = true;
 
             if (hasErrors) {
-                // Clear both displays
+                // Clear all displays
                 document.getElementById('result-value').textContent = '--';
                 document.getElementById('calculation-steps').style.display = 'none';
                 document.getElementById('inline-result-value').textContent = '--';
@@ -758,30 +755,34 @@
                 return;
             }
 
-            // Perform calculation
-            const dragPerSetting = maxDrag / numSettings;
-            const finalResult = dragPerSetting * desiredSetting;
-
-            // Update result display labels
             const resultLabels = document.querySelectorAll('.result-label');
-            resultLabels.forEach(label => label.textContent = 'Drag at Desired Setting');
+            let finalResult, step1Text, step2Text;
 
-            // Display results in both locations
-            document.getElementById('result-value').textContent = finalResult.toFixed(4);
-            document.getElementById('step1').textContent = `1. Drag per setting = ${maxDrag} / ${numSettings} = ${dragPerSetting.toFixed(4)}`;
-            document.getElementById('step2').textContent = `2. Final result = ${dragPerSetting.toFixed(4)} * ${desiredSetting} = ${finalResult.toFixed(4)}`;
-            document.getElementById('calculation-steps').style.display = 'block';
-
-            // Update inline display
-            document.getElementById('inline-result-value').textContent = finalResult.toFixed(4);
-            document.getElementById('inline-step1').textContent = `1. Drag per setting = ${maxDrag} / ${numSettings} = ${dragPerSetting.toFixed(4)}`;
-            document.getElementById('inline-step2').textContent = `2. Final result = ${dragPerSetting.toFixed(4)} * ${desiredSetting} = ${finalResult.toFixed(4)}`;
-            document.getElementById('inline-calculation-steps').style.display = 'block';
-
-            if (!isCalculatingReverse) {
+            if (isCalculatingReverse) {
+                resultLabels.forEach(label => label.textContent = 'Calculated Max Drag');
+                const targetDrag = parseFloat(document.getElementById('targetDrag').value) || 0;
+                finalResult = (targetDrag * numSettings) / desiredSetting;
+                step1Text = `1. Max Drag = ${targetDrag} * ${numSettings} / ${desiredSetting}`;
+                step2Text = `2. Final result = ${finalResult.toFixed(4)}`;
+            } else {
+                resultLabels.forEach(label => label.textContent = 'Drag at Desired Setting');
+                const dragPerSetting = maxDrag / numSettings;
+                finalResult = dragPerSetting * desiredSetting;
+                step1Text = `1. Drag per setting = ${maxDrag} / ${numSettings} = ${dragPerSetting.toFixed(4)}`;
+                step2Text = `2. Final result = ${dragPerSetting.toFixed(4)} * ${desiredSetting} = ${finalResult.toFixed(4)}`;
                 document.getElementById('targetDrag').value = finalResult.toFixed(4);
             }
+
+            // Update all displays
+            document.getElementById('result-value').textContent = finalResult.toFixed(4);
+            document.getElementById('inline-result-value').textContent = finalResult.toFixed(4);
             document.getElementById('title-result').textContent = finalResult.toFixed(4);
+            document.getElementById('step1').textContent = step1Text;
+            document.getElementById('step2').textContent = step2Text;
+            document.getElementById('inline-step1').textContent = step1Text;
+            document.getElementById('inline-step2').textContent = step2Text;
+            document.getElementById('calculation-steps').style.display = 'block';
+            document.getElementById('inline-calculation-steps').style.display = 'block';
         }
 
         function clearForm() {
