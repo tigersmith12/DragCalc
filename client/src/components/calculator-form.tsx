@@ -3,7 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Calculator, Trash2, Settings, Target, Weight } from "lucide-react";
+import { Calculator, Trash2, Settings, Target, Weight, RotateCcw } from "lucide-react";
 import { CalculationInputs } from "@/pages/home";
 
 interface CalculatorFormProps {
@@ -16,6 +16,7 @@ interface ValidationErrors {
   maxDrag: string;
   numSettings: string;
   desiredSetting: string;
+  targetDrag: string;
 }
 
 export default function CalculatorForm({ inputs, onInputChange, onClear }: CalculatorFormProps) {
@@ -23,7 +24,9 @@ export default function CalculatorForm({ inputs, onInputChange, onClear }: Calcu
     maxDrag: "",
     numSettings: "",
     desiredSetting: "",
+    targetDrag: "",
   });
+  const [targetDrag, setTargetDrag] = useState<number>(0);
 
   const validateInput = (value: number, fieldName: string, min: number = 0.01): string => {
     if (!value || value === 0) {
@@ -82,8 +85,29 @@ export default function CalculatorForm({ inputs, onInputChange, onClear }: Calcu
       maxDrag: "",
       numSettings: "",
       desiredSetting: "",
+      targetDrag: "",
     });
+    setTargetDrag(0);
     onClear();
+  };
+
+  const handleTargetDragChange = (value: string) => {
+    const numValue = parseFloat(value) || 0;
+    setTargetDrag(numValue);
+    
+    // Calculate reverse: maxDrag = targetDrag * numSettings / desiredSetting
+    if (numValue > 0 && inputs.numSettings > 0 && inputs.desiredSetting > 0) {
+      const calculatedMaxDrag = (numValue * inputs.numSettings) / inputs.desiredSetting;
+      const newInputs = { ...inputs, maxDrag: calculatedMaxDrag };
+      onInputChange(newInputs);
+    }
+    
+    // Validate target drag
+    const targetError = validateInput(numValue, "Target Drag");
+    setErrors({
+      ...errors,
+      targetDrag: targetError
+    });
   };
 
   // Calculate real-time results
@@ -186,6 +210,44 @@ export default function CalculatorForm({ inputs, onInputChange, onClear }: Calcu
             {errors.desiredSetting && (
               <div className="text-red-500 text-sm mt-1" data-testid="error-desired-setting">
                 {errors.desiredSetting}
+              </div>
+            )}
+          </div>
+
+          {/* OR divider */}
+          <div className="flex items-center justify-center my-6">
+            <div className="flex-1 border-t border-slate-200 dark:border-gray-600"></div>
+            <span className="px-4 text-sm text-slate-500 dark:text-gray-400 bg-white dark:bg-gray-800">OR</span>
+            <div className="flex-1 border-t border-slate-200 dark:border-gray-600"></div>
+          </div>
+
+          {/* Target Drag Input (Reverse Calculation) */}
+          <div className="relative">
+            <Label htmlFor="targetDrag" className="block text-sm font-medium text-slate-700 dark:text-gray-200 mb-2">
+              Target Drag at Desired Setting 
+            </Label>
+            <div className="relative">
+              <Input
+                type="number"
+                id="targetDrag"
+                data-testid="input-target-drag"
+                placeholder="Enter desired drag value to calculate max drag"
+                min="0.01"
+                step="0.01"
+                value={targetDrag || ""}
+                onChange={(e) => handleTargetDragChange(e.target.value)}
+                className="w-full px-4 py-3 pr-12 text-lg border-slate-300 dark:border-gray-600 focus:ring-2 focus:ring-primary focus:border-primary bg-white dark:bg-gray-700 text-black dark:text-white"
+              />
+              <div className="absolute inset-y-0 right-0 flex items-center pr-3">
+                <RotateCcw className="w-5 h-5 text-slate-400 dark:text-gray-400" />
+              </div>
+            </div>
+            <p className="text-sm text-slate-500 dark:text-gray-400 mt-1">
+              Enter your desired drag value and we'll calculate the required maximum drag
+            </p>
+            {errors.targetDrag && (
+              <div className="text-red-500 text-sm mt-1" data-testid="error-target-drag">
+                {errors.targetDrag}
               </div>
             )}
           </div>

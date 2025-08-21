@@ -498,6 +498,28 @@
                             <div id="desiredSetting-error" class="error" style="display: none;"></div>
                         </div>
 
+                        <!-- OR divider -->
+                        <div style="display: flex; align-items: center; justify-content: center; margin: 1.5rem 0;">
+                            <div style="flex: 1; border-top: 1px solid var(--border-light); border-color: var(--border-light);"></div>
+                            <span style="padding: 0 1rem; font-size: 0.875rem; color: var(--text-muted-light); background: var(--card-light);">OR</span>
+                            <div style="flex: 1; border-top: 1px solid var(--border-light); border-color: var(--border-light);"></div>
+                        </div>
+
+                        <!-- Target Drag Input (Reverse Calculation) -->
+                        <div class="form-group">
+                            <label class="label" for="targetDrag">
+                                Target Drag at Desired Setting
+                            </label>
+                            <div class="input-container">
+                                <input type="number" id="targetDrag" class="input" placeholder="Enter desired drag value to calculate max drag" min="0.01" step="0.01">
+                                <svg class="input-icon" viewBox="0 0 24 24">
+                                    <path d="M2.5 2v6h6m8.5 0a9 9 0 1 1-5.38-8.23"/>
+                                </svg>
+                            </div>
+                            <div class="help-text">Enter your desired drag value and we'll calculate the required maximum drag</div>
+                            <div id="targetDrag-error" class="error" style="display: none;"></div>
+                        </div>
+
                         <!-- Real-time Result Display -->
                         <div class="form-group">
                             <div class="result-display">
@@ -698,6 +720,21 @@
             }
         }
 
+        function calculateReverse() {
+            const targetDrag = parseFloat(document.getElementById('targetDrag').value) || 0;
+            const numSettings = parseFloat(document.getElementById('numSettings').value) || 0;
+            const desiredSetting = parseFloat(document.getElementById('desiredSetting').value) || 0;
+
+            if (targetDrag > 0 && numSettings > 0 && desiredSetting > 0) {
+                // Reverse calculation: maxDrag = targetDrag * numSettings / desiredSetting
+                const calculatedMaxDrag = (targetDrag * numSettings) / desiredSetting;
+                document.getElementById('maxDrag').value = calculatedMaxDrag.toFixed(4);
+                
+                // Trigger normal calculation
+                calculate();
+            }
+        }
+
         function calculate() {
             const maxDrag = parseFloat(document.getElementById('maxDrag').value) || 0;
             const numSettings = parseFloat(document.getElementById('numSettings').value) || 0;
@@ -756,6 +793,7 @@
             showError('maxDrag', '');
             showError('numSettings', '');
             showError('desiredSetting', '');
+            showError('targetDrag', '');
             
             updateDesiredSettingConstraints();
         }
@@ -777,8 +815,13 @@
             document.getElementById('numSettings').addEventListener('input', function() {
                 updateDesiredSettingConstraints();
                 calculate();
+                calculateReverse(); // Also trigger reverse calculation
             });
-            document.getElementById('desiredSetting').addEventListener('input', calculate);
+            document.getElementById('desiredSetting').addEventListener('input', function() {
+                calculate();
+                calculateReverse(); // Also trigger reverse calculation
+            });
+            document.getElementById('targetDrag').addEventListener('input', calculateReverse);
         });
     </script>
 </body>
